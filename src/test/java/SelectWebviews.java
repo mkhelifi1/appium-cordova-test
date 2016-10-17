@@ -41,11 +41,6 @@ public class SelectWebviews {
         resultWatcher.setAppiumDriver(driver);
     }
 
-    @After
-    public void teardown() {
-        driver.quit();
-    }
-
     @Test
     public void reproTest() throws Exception {
 
