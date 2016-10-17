@@ -15,3 +15,7 @@ dependencies {
     testCompile 'org.seleniumhq.selenium:selenium-server:2.53.0'
     testCompile 'org.testobject:testobject-appium-java-api:0.0.19'
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion: '2.0'
+}
