@@ -47,6 +47,8 @@ public class SelectWebviews {
     @Test
     public void reproTest() throws Exception {
 
+        final String webviewContext = "WEBVIEW";
+
         // Wait for webview to be available
         Thread.sleep(1000 * 25);
 
@@ -55,13 +57,13 @@ public class SelectWebviews {
         boolean foundWebview = false;
         for (String context : contexts) {
             System.out.println("Found context: " + context);
-            if (context.contains("WEBVIEW")) {
+            if (context.contains(webviewContext)) {
                 System.out.println("Found webview. Switching context");
                 driver.context(context);
                 driver.getPageSource();
                 foundWebview = true;
             }
         }
-        Assert.assertTrue(foundWebview);
+        Assert.assertTrue("Couldn't find context " + webviewContext + " in " + contexts, foundWebview);
     }
 }
