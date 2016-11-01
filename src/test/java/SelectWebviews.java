@@ -27,7 +27,7 @@ public class SelectWebviews {
 
         capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_API_KEY"));
         capabilities.setCapability("testobject_device", System.getenv("TESTOBJECT_DEVICE_ID"));
-        capabilities.setCapability("testobject_appium_version", "1.5.2-patched-chromedriver");
+        capabilities.setCapability("testobject_appium_version", System.getenv("TESTOBJECT_APPIUM_VERSION"));
 
         String testUUID = UUID.randomUUID().toString();
         System.out.println("TestUUID: " + testUUID);
