@@ -64,6 +64,6 @@ public class SelectWebviews {
                 foundWebview = true;
             }
         }
-        Assert.assertTrue("Couldn't find context " + webviewContext + " in " + contexts, foundWebview);
+        Assert.assertTrue("Looking for context " + webviewContext + " in " + contexts, foundWebview);
     }
 }
