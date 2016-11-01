@@ -38,6 +38,9 @@ public class SelectWebviews {
 
         driver = new AndroidDriver(new URL(testobjectAppiumEndpoint), capabilities);
 
+        System.out.println(driver.getCapabilities().getCapability("testobject_test_report_url"));
+        System.out.println(driver.getCapabilities().getCapability("testobject_test_live_view_url"));
+
         resultWatcher.setAppiumDriver(driver);
     }
 
