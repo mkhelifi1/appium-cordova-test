@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("staging test") {
             when {
-                expression { params.APPIUM_SERVER == 'http://appium.staging.testobject.org/wd/hub' }
+                expression { params.APPIUM_URL == 'http://appium.staging.testobject.org/wd/hub' }
             }
             steps {
                 lock (resource: params.TESTOBJECT_DEVICE_ID) {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage("test") {
             when {
-                 expression { params.APPIUM_SERVER != 'http://appium.staging.testobject.org/wd/hub' }
+                 expression { params.APPIUM_URL != 'http://appium.staging.testobject.org/wd/hub' }
             }
             steps {
                 sh "./gradlew clean test"
