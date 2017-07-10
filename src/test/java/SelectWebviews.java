@@ -29,6 +29,16 @@ public class SelectWebviews {
         capabilities.setCapability("testobject_device", System.getenv("TESTOBJECT_DEVICE_ID"));
         capabilities.setCapability("testobject_appium_version", System.getenv("TESTOBJECT_APPIUM_VERSION"));
 
+		String TESTOBJECT_SESSION_CREATION_TIMEOUT = System.getenv("TESTOBJECT_SESSION_CREATION_TIMEOUT");
+		if (TESTOBJECT_SESSION_CREATION_TIMEOUT != null) {
+			capabilities.setCapability("testobject_session_creation_timeout", TESTOBJECT_SESSION_CREATION_TIMEOUT);
+		}
+
+		String TESTOBJECT_SESSION_CREATION_RETRY = System.getenv("TESTOBJECT_SESSION_CREATION_RETRY");
+		if (TESTOBJECT_SESSION_CREATION_RETRY != null) {
+			capabilities.setCapability("testobject_session_creation_retry", TESTOBJECT_SESSION_CREATION_RETRY);
+		}
+
         String testUUID = UUID.randomUUID().toString();
         System.out.println("TestUUID: " + testUUID);
         capabilities.setCapability("testobject_testuuid", testUUID);
