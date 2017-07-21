@@ -19,7 +19,7 @@ def runTest() {
 
 if (env.APPIUM_URL.contains("staging.testobject.org")) {
     echo "Testing on staging; locking resource"
-    lock (resource: params.TESTOBJECT_DEVICE_ID) {
+    lock (resource: params.TESTOBJECT_DEVICE) {
         runTest()
     }
 } else {
