@@ -26,7 +26,7 @@ public class SelectWebviews {
 
 
         capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_API_KEY"));
-        capabilities.setCapability("testobject_device", System.getenv("TESTOBJECT_DEVICE_ID"));
+        capabilities.setCapability("testobject_device", System.getenv("TESTOBJECT_DEVICE"));
         capabilities.setCapability("testobject_appium_version", System.getenv("TESTOBJECT_APPIUM_VERSION"));
 
 		String TESTOBJECT_SESSION_CREATION_TIMEOUT = System.getenv("TESTOBJECT_SESSION_CREATION_TIMEOUT");
