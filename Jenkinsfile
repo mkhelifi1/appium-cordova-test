@@ -11,7 +11,7 @@ def runTest() {
                     sh "./gradlew clean test"
                 }
             } finally {
-                junit "**/test-results/*.xml"
+                junit "**/test-results/test/*.xml"
             }
         }
     }
