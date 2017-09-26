@@ -30,7 +30,6 @@ public class SelectWebviews {
 
 		capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_API_KEY"));
 		setOptionalCapability("TESTOBJECT_DEVICE");
-		setOptionalCapability("DEVICE_NAME");
 		setOptionalCapability("TESTOBJECT_APPIUM_VERSION");
 		setOptionalCapability("TESTOBJECT_SESSION_CREATION_TIMEOUT");
 		setOptionalCapability("TESTOBJECT_SESSION_CREATION_RETRY");
