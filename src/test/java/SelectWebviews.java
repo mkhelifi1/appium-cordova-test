@@ -42,10 +42,13 @@ public class SelectWebviews {
 		String testobjectAppiumEndpoint = Optional.ofNullable(System.getenv("APPIUM_URL"))
 				.orElse("http://appium.testobject.com/wd/hub");
 
+		System.out.println(capabilities.toString());
+
 		driver = new AndroidDriver(new URL(testobjectAppiumEndpoint), capabilities);
 
 		System.out.println(driver.getCapabilities().getCapability("testobject_test_report_url"));
 		System.out.println(driver.getCapabilities().getCapability("testobject_test_live_view_url"));
+
 
 		resultWatcher.setRemoteWebDriver(driver);
 	}
