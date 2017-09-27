@@ -27,13 +27,17 @@ public class SelectWebviews {
 	@Before
 	public void setup() throws MalformedURLException {
 		capabilities = new DesiredCapabilities();
-
 		capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_API_KEY"));
-		setOptionalCapability("TESTOBJECT_DEVICE");
-		setOptionalCapability("DEVICE_NAME");
-		setOptionalCapability("TESTOBJECT_APPIUM_VERSION");
-		setOptionalCapability("TESTOBJECT_SESSION_CREATION_TIMEOUT");
-		setOptionalCapability("TESTOBJECT_SESSION_CREATION_RETRY");
+		setOptionalCapability("testobject_app_id", "TESTOBJECT_APP_ID");
+		setOptionalCapability("testobject_device", "TESTOBJECT_DEVICE");
+		setOptionalCapability("deviceName", "DEVICE_NAME");
+		setOptionalCapability("platformVersion", "PLATFORM_VERSION");
+		setOptionalCapability("automationName", "AUTOMATION_NAME");
+		setOptionalCapability("testobject_appium_version", "TESTOBJECT_APPIUM_VERSION");
+		setOptionalCapability("testobject_cache_device", "TESTOBJECT_CACHE_DEVICE");
+		setOptionalCapability("testobject_session_creation_timeout", "TESTOBJECT_SESSION_CREATION_TIMEOUT");
+		setOptionalCapability("testobject_session_creation_retry", "TESTOBJECT_SESSION_CREATION_RETRY");
+
 
 		String testUUID = UUID.randomUUID().toString();
 		System.out.println("TestUUID: " + testUUID);
@@ -66,7 +70,7 @@ public class SelectWebviews {
 		for (String context : contexts) {
 			System.out.println("Found context: " + context);
 			if (context.contains(webviewContext)) {
-				System.out.println("Found webview. Switching context");
+				System.out.println("Found webview. Switching context..");
 				driver.context(context);
 				driver.getPageSource();
 				foundWebview = true;
@@ -75,10 +79,10 @@ public class SelectWebviews {
 		Assert.assertTrue("Looking for context " + webviewContext + " in " + contexts, foundWebview);
 	}
 
-	private void setOptionalCapability(String var) {
-		Optional.ofNullable(System.getenv(var))
+	private void setOptionalCapability(String desiredCapabilityName, String environmentVariableName) {
+		Optional.ofNullable(System.getenv(environmentVariableName))
 				.filter(env -> !env.isEmpty())
-				.ifPresent(data -> capabilities.setCapability(var, data));
+				.ifPresent(value -> capabilities.setCapability(desiredCapabilityName, value));
 	}
 
 }
