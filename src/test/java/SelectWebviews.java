@@ -60,7 +60,7 @@ public class SelectWebviews {
 	@Test
 	public void reproTest() throws Exception {
 
-		final String webviewContext = "WEBVIEW";
+		final String webviewContext = "WEBVIEW_io";
 		// Wait for webview to be available
 		Thread.sleep(1000 * 25);
 
@@ -76,7 +76,7 @@ public class SelectWebviews {
 				foundWebview = true;
 			}
 		}
-		Assert.assertTrue("Looking for context " + webviewContext + " in " + contexts, foundWebview);
+		Assert.assertTrue("Couldn't find context " + webviewContext + " in " + contexts + " on this device", foundWebview);
 	}
 
 	private void setOptionalCapability(String desiredCapabilityName, String environmentVariableName) {
