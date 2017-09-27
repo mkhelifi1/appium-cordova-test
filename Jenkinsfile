@@ -8,7 +8,7 @@ def runTest() {
         stage("test") {
             try {
                 docker.image("java:8").inside {
-                    sh "./gradlew -w clean test"
+                    sh "./gradlew clean test"
                 }
             } finally {
                 junit "**/test-results/test/*.xml"
