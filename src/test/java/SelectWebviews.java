@@ -28,6 +28,7 @@ public class SelectWebviews {
 	public void setup() throws MalformedURLException {
 		capabilities = new DesiredCapabilities();
 		capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_API_KEY"));
+
 		setOptionalCapability("testobject_app_id", "TESTOBJECT_APP_ID");
 		setOptionalCapability("testobject_device", "TESTOBJECT_DEVICE");
 		setOptionalCapability("deviceName", "DEVICE_NAME");
@@ -37,7 +38,6 @@ public class SelectWebviews {
 		setOptionalCapability("testobject_cache_device", "TESTOBJECT_CACHE_DEVICE");
 		setOptionalCapability("testobject_session_creation_timeout", "TESTOBJECT_SESSION_CREATION_TIMEOUT");
 		setOptionalCapability("testobject_session_creation_retry", "TESTOBJECT_SESSION_CREATION_RETRY");
-
 
 		String testUUID = UUID.randomUUID().toString();
 		System.out.println("TestUUID: " + testUUID);
